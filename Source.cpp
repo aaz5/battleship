@@ -1,94 +1,78 @@
-//Include
-#include <iostream>			//iostream for input and outputs to the console
-#include <string>			//string library to use strings
-#include <vector>			//vectors are basically better arrays
-
-//Using namespace for ease of code writing
 using namespace std;
+#include<iostream>
+#include"boat.h"
 
-#include "Boat.h"
-
-
-//This function sets up objects for every single boat piece on both teams
-void boatSetup() {
-
-	Boat Carrier1;
-	Carrier1.size = 5;
-	Carrier1.team = 1;
-
-	Boat Carrier2;
-	Carrier2.size = 5;
-	Carrier2.team = 2;
-
-	Boat Battleship1;
-	Battleship1.size = 4;
-	Battleship1.team = 1;
-
-	Boat Battleship2;
-	Battleship2.size = 4;
-	Battleship2.team = 2;
-
-	Boat Cruiser1;
-	Cruiser1.size = 3;
-	Cruiser1.team = 1;
-
-	Boat Cruiser2;
-	Cruiser2.size = 3;
-	Cruiser2.team = 2;
-
-	Boat Submarine1;
-	Submarine1.size = 3;
-	Submarine1.team = 1;
-
-	Boat Submarine2;
-	Submarine2.size = 3;
-	Submarine2.team = 2;
-
-	Boat Destroyer1;
-	Destroyer1.size = 2;
-	Destroyer1.team = 1;
-
-	Boat Destroyer2;
-	Destroyer2.size = 2;
-	Destroyer2.team = 2;
-
-	//testing everything has been set up correctly
-
-	/*Carrier1.printBoat();
-	Carrier2.printBoat();
-	Battleship1.printBoat();
-	Battleship2.printBoat();
-	Cruiser1.printBoat();
-	Cruiser2.printBoat();
-	Submarine1.printBoat();
-	Submarine2.printBoat();
-	Destroyer1.printBoat();
-	Destroyer2.printBoat();*/
-
-	Carrier1.printBoat();
-	Battleship1.printBoat();
-	Cruiser1.printBoat();
-	Submarine1.printBoat();
-	Destroyer1.printBoat();
-
-	Carrier2.printBoat();
-	Battleship2.printBoat();
-	Cruiser2.printBoat();
-	Submarine2.printBoat();
-	Destroyer2.printBoat(); 
-
-
-
-}
-
-
-
-//Main function
+int attack(int coord[], int s, int *ship);
+void hit_check();
 int main() {
 
-	boatSetup();
+	const int size = 3;
+	const int shipid = 1;
+	int co[size][2]; // co becomes ship.location
 
-	cin.ignore();
-		cin.get();
-		return 0;
+	co[0][0] = 1;  
+	co[0][1] = 2;
+	co[1][0] = 1;
+	co[1][1] = 3;
+	co[2][0] = 1;
+	co[2][1] = 4;
+	int *ship = co[0];
+
+	
+	cout << *(ship + 0)<< *(ship+1) << '\n';
+	cout << *(ship + 2) << *(ship + 3) << '\n';
+	cout << *(ship + 4) << *(ship + 5) << '\n';
+	int attack_coord[] = { 1, 4 };
+	cout << "Enter coords";
+	cin >> attack_coord[0]; cin >> attack_coord[1];
+	 
+	
+
+
+	/* ship.location would give me  {(1, 2)(1, 3)(1, 4)} */
+	
+	//cout << attack_coord[1] << '\n';
+	//int *a = attack_coord;
+
+
+	//attack(attack_coord, size, ship);
+
+
+	boat carrier1(3, 1, "carrier");
+	cout << carrier1.size;
+
+
+
+
+	cin.get();
+	cin.get();
+	cin.get();
+	return 0;
 }
+
+
+int attack(int coord[], int size, int *ship) { 
+
+	cout << ship;
+	cout << &ship;
+
+
+	//for (int x = 0; x < s; x++) {
+	//	if (coord[0] == ) {};
+	//}
+
+	return 0;
+}
+
+//void hit_check(int attack_coord[]) { 
+//
+//	bool hit = false;
+//	for (int x = 0; x < size; x++) {
+//		if (attack_coord[0] == co[x][0] && attack_coord[1] == co[x][1]) {
+//			cout << "You have hit: " << shipid << " at coordinate: " << co[x][0] << co[x][1] << '\n';
+//			hit = true;
+//			break;
+//		}
+//		else { cout << "you missed \n "; }
+//	}
+//}
